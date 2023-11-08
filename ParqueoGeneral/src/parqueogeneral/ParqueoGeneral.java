@@ -7,7 +7,7 @@ public class ParqueoGeneral {
 
     public static void main(String[] args) {
         
-        // Ejecutar Usuario
+        // Ejecutar Usuario Test
         
         
         
