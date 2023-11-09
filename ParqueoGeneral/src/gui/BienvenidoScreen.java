@@ -45,7 +45,7 @@ public class BienvenidoScreen extends javax.swing.JFrame {
         txtConstruccion.setForeground(new java.awt.Color(255, 255, 255));
         txtConstruccion.setText("Available soon...");
 
-        txtUsuario.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        txtUsuario.setFont(new java.awt.Font("Helvetica Neue", 2, 24)); // NOI18N
         txtUsuario.setForeground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);

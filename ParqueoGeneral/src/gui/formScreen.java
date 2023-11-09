@@ -13,9 +13,12 @@ import parqueogeneral.Usuario;
  */
 public class formScreen extends javax.swing.JFrame {
     
+    private GestionarUsuario gestionarUsuarios;
+    
     public formScreen(boolean isVisible) {
         initComponents();
         this.setVisible(isVisible);
+        gestionarUsuarios = GestionarUsuario.getInstace();
     }
 
     /**
@@ -247,9 +250,9 @@ public class formScreen extends javax.swing.JFrame {
             // Crear un nuevo objeto Usuario con estos datos:
             Usuario nuevoUsuario = new Usuario(nombre, apellido, usuario, correo, password, "Activo");
         
-            //Se puede usar la instancia de GestionarUsuario para agregar este nuevo usuario.
-            GestionarUsuario gestionarUsuarios = new GestionarUsuario(10000);
-            gestionarUsuarios.anadirUsuario(nuevoUsuario); 
+            // Se usa la instancia de Gestionar Usuario compartida
+            GestionarUsuario gestionarUsuarios = GestionarUsuario.getInstace();
+            gestionarUsuarios.anadirUsuario(nuevoUsuario);
             
             // Registro de depuración: Mostrar los datos del nuevo usuario - testeo
             System.out.println("Datos del nuevo usuario:");
