@@ -6,10 +6,22 @@ public class GestionarUsuario {
     public Usuario[] usuarios;
     public int numeroUsuarios;
     
-    // Constructor
-    public GestionarUsuario(int capacidad){
+    // Se declara la instancio como una variable estática para que
+    // sea compartida entre diferentes clases y objetos sin necesidad de crear multiples instancias
+    private static GestionarUsuario instance;
+    
+    // Constructor privado para evitar creacion de instancias externas
+    private GestionarUsuario(int capacidad){
         usuarios = new Usuario[capacidad]; // inicializamos el Array
         numeroUsuarios = 0;
+    }
+    
+    // Método para ibtener la instancia única
+    public static GestionarUsuario getInstace(){
+        if(instance == null){
+            instance = new GestionarUsuario(10000);
+        }
+        return instance;
     }
     
     // Agregar Usuarios

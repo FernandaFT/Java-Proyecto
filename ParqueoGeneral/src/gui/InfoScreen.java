@@ -20,9 +20,11 @@ public class InfoScreen extends javax.swing.JFrame {
     /**
      * Creates new form InfoScreen
      */
+    
+    private GestionarUsuario gestionarUsuarios;
     public InfoScreen() {
         initComponents();
- 
+        gestionarUsuarios = GestionarUsuario.getInstace();
     }
     
 
@@ -165,17 +167,17 @@ public class InfoScreen extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_boxUsuarioActionPerformed
 
+    
     private void btnAccederActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAccederActionPerformed
         
         // trim() elimina espacios alrededor del texto
         String usuarioIngresado = boxUsuario.getText().trim();
         String passwordIngresado = new String(boxPw.getPassword()).trim();
         
-        // Instancia
-        GestionarUsuario gestionarUsuarios = new GestionarUsuario(10000);
-        
-        // Autenticar Usuario
+        // Se usa la instancia de Gestionar Usuario compartida
+        GestionarUsuario gestionarUsuarios = GestionarUsuario.getInstace();
         Usuario usuarioAutenticado = gestionarUsuarios.autenticarUsuario(usuarioIngresado, passwordIngresado);
+ 
         
         if(usuarioAutenticado != null){
             BienvenidoScreen bienvenidoScreen = new BienvenidoScreen();
