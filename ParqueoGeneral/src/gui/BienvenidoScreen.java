@@ -4,6 +4,8 @@
  */
 package gui;
 
+
+
 /**
  *
  * @author fernandafajardo
@@ -28,26 +30,41 @@ public class BienvenidoScreen extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollBar1 = new javax.swing.JScrollBar();
         jPanel1 = new javax.swing.JPanel();
         txtBienvenida = new javax.swing.JLabel();
         txtUsuario = new javax.swing.JLabel();
         txtHorarios = new javax.swing.JLabel();
+        dropdownHorario = new javax.swing.JComboBox<>();
+        txtHora = new javax.swing.JLabel();
         txtCapDisponible = new javax.swing.JLabel();
         txtNumDisponible = new javax.swing.JLabel();
-        txtSeleccion = new javax.swing.JLabel();
         iconDiscapacitado = new javax.swing.JLabel();
-        checkboxDiscapacitado = new javax.swing.JCheckBox();
+        txtDiscapacitados = new javax.swing.JLabel();
         txtDisponibilidadDis = new javax.swing.JLabel();
         iconCargaElectrica = new javax.swing.JLabel();
-        checkboxCargaE = new javax.swing.JCheckBox();
+        txtCE = new javax.swing.JLabel();
         txtDisponibilidadCE = new javax.swing.JLabel();
         iconParking = new javax.swing.JLabel();
-        checkboxRegulares = new javax.swing.JCheckBox();
+        txtRegulares = new javax.swing.JLabel();
         txtDisponibilidadR = new javax.swing.JLabel();
         iconParkingArea = new javax.swing.JLabel();
-        checkboxTechado = new javax.swing.JCheckBox();
+        txtDTechado = new javax.swing.JLabel();
         txtDisponibilidadT = new javax.swing.JLabel();
+        txtSeleccion = new javax.swing.JLabel();
+        txtTipoEspacio = new javax.swing.JLabel();
+        boxTipoEspacio = new javax.swing.JTextField();
+        txtPosicion = new javax.swing.JLabel();
+        boxPosicion = new javax.swing.JTextField();
+        btnAceptarInfo = new javax.swing.JButton();
+        txtConfirmacionEspacio = new javax.swing.JLabel();
+        txtEspacio = new javax.swing.JLabel();
+        txtConfirmTipo = new javax.swing.JLabel();
+        txtP = new javax.swing.JLabel();
+        txtConfirmPosition = new javax.swing.JLabel();
+        btnConfirmar = new javax.swing.JButton();
+        btnEditar = new javax.swing.JButton();
+        btnEliminarEspacio = new javax.swing.JButton();
+        txtConfirmacion = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -61,48 +78,107 @@ public class BienvenidoScreen extends javax.swing.JFrame {
         txtUsuario.setForeground(new java.awt.Color(255, 255, 255));
 
         txtHorarios.setForeground(new java.awt.Color(255, 255, 255));
-        txtHorarios.setText("Horario de atención L-V 8AM - 5PM");
+        txtHorarios.setText("Horario de atención");
+
+        dropdownHorario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Lunes", "Martes", "Miércoles", "Jueves", "Viernes" }));
+        dropdownHorario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dropdownHorarioActionPerformed(evt);
+            }
+        });
+
+        txtHora.setForeground(new java.awt.Color(255, 255, 255));
+        txtHora.setText("8AM - 5PM");
 
         txtCapDisponible.setForeground(new java.awt.Color(255, 255, 255));
         txtCapDisponible.setText("Capacidad disponible:");
 
         txtNumDisponible.setForeground(new java.awt.Color(255, 255, 255));
-        txtNumDisponible.setText("disponible");
-
-        txtSeleccion.setForeground(new java.awt.Color(255, 255, 255));
-        txtSeleccion.setText("Seleccione su espacio:");
+        txtNumDisponible.setText("38 espacios");
 
         iconDiscapacitado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/disabled.png"))); // NOI18N
 
-        checkboxDiscapacitado.setForeground(new java.awt.Color(255, 255, 255));
-        checkboxDiscapacitado.setText("Discapacitado");
+        txtDiscapacitados.setForeground(new java.awt.Color(255, 255, 255));
+        txtDiscapacitados.setText("Discapacitado");
 
         txtDisponibilidadDis.setForeground(new java.awt.Color(255, 255, 255));
-        txtDisponibilidadDis.setText("jLabel1");
+        txtDisponibilidadDis.setText("jLabel1 5");
 
         iconCargaElectrica.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/electric-vehicle.png"))); // NOI18N
 
-        checkboxCargaE.setForeground(new java.awt.Color(255, 255, 255));
-        checkboxCargaE.setText("Carga Electrica");
+        txtCE.setForeground(new java.awt.Color(255, 255, 255));
+        txtCE.setText("Carga Electrica");
 
         txtDisponibilidadCE.setForeground(new java.awt.Color(255, 255, 255));
-        txtDisponibilidadCE.setText("jLabel1");
+        txtDisponibilidadCE.setText("jLabel1 3");
 
         iconParking.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/signage.png"))); // NOI18N
 
-        checkboxRegulares.setForeground(new java.awt.Color(255, 255, 255));
-        checkboxRegulares.setText("Regulares");
+        txtRegulares.setForeground(new java.awt.Color(255, 255, 255));
+        txtRegulares.setText("General");
 
         txtDisponibilidadR.setForeground(new java.awt.Color(255, 255, 255));
-        txtDisponibilidadR.setText("jLabel1");
+        txtDisponibilidadR.setText("jLabel1 15");
 
         iconParkingArea.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/parking-area.png"))); // NOI18N
 
-        checkboxTechado.setForeground(new java.awt.Color(255, 255, 255));
-        checkboxTechado.setText("Techado");
+        txtDTechado.setForeground(new java.awt.Color(255, 255, 255));
+        txtDTechado.setText("Techado");
 
         txtDisponibilidadT.setForeground(new java.awt.Color(255, 255, 255));
-        txtDisponibilidadT.setText("jLabel1");
+        txtDisponibilidadT.setText("jLabel1 15");
+
+        txtSeleccion.setForeground(new java.awt.Color(255, 255, 255));
+        txtSeleccion.setText("Indique su espacio:");
+
+        txtTipoEspacio.setForeground(new java.awt.Color(255, 255, 255));
+        txtTipoEspacio.setText("Tipo de espacio");
+
+        txtPosicion.setForeground(new java.awt.Color(255, 255, 255));
+        txtPosicion.setText("Lugar/Posición");
+
+        btnAceptarInfo.setText("Aceptar");
+        btnAceptarInfo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAceptarInfoActionPerformed(evt);
+            }
+        });
+
+        txtConfirmacionEspacio.setForeground(new java.awt.Color(255, 255, 255));
+        txtConfirmacionEspacio.setText("Confirmación de espacio");
+
+        txtEspacio.setForeground(new java.awt.Color(255, 255, 255));
+        txtEspacio.setText("Tipo de espacio:");
+
+        txtConfirmTipo.setForeground(new java.awt.Color(255, 255, 255));
+
+        txtP.setForeground(new java.awt.Color(255, 255, 255));
+        txtP.setText("Posición:");
+
+        txtConfirmPosition.setForeground(new java.awt.Color(255, 255, 255));
+
+        btnConfirmar.setText("Confirmar");
+        btnConfirmar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConfirmarActionPerformed(evt);
+            }
+        });
+
+        btnEditar.setText("Editar");
+        btnEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditarActionPerformed(evt);
+            }
+        });
+
+        btnEliminarEspacio.setText("Eliminar");
+        btnEliminarEspacio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarEspacioActionPerformed(evt);
+            }
+        });
+
+        txtConfirmacion.setForeground(new java.awt.Color(255, 218, 0));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -112,40 +188,74 @@ public class BienvenidoScreen extends javax.swing.JFrame {
                 .addGap(23, 23, 23)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(txtCapDisponible)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtNumDisponible))
-                            .addComponent(txtHorarios)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(txtBienvenida)
-                                .addGap(18, 18, 18)
-                                .addComponent(txtUsuario)))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(txtHorarios)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(dropdownHorario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtHora))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(iconDiscapacitado)
-                                .addComponent(checkboxDiscapacitado)
-                                .addComponent(txtDisponibilidadDis))
-                            .addComponent(txtSeleccion))
-                        .addGap(106, 106, 106)
+                        .addComponent(txtCapDisponible)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtNumDisponible))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(txtBienvenida)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtUsuario)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(52, 52, 52)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(iconDiscapacitado)
+                            .addComponent(txtDiscapacitados)
+                            .addComponent(txtDisponibilidadDis))
+                        .addGap(110, 110, 110)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(iconCargaElectrica)
-                            .addComponent(checkboxCargaE)
+                            .addComponent(txtCE)
                             .addComponent(txtDisponibilidadCE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 117, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 135, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(iconParking)
-                            .addComponent(checkboxRegulares)
+                            .addComponent(txtRegulares)
                             .addComponent(txtDisponibilidadR))
-                        .addGap(101, 101, 101)
+                        .addGap(132, 132, 132)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtDisponibilidadT)
-                            .addComponent(checkboxTechado)
+                            .addComponent(txtDTechado)
                             .addComponent(iconParkingArea))
-                        .addGap(119, 119, 119))))
+                        .addGap(89, 89, 89))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtSeleccion)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(txtPosicion)
+                                        .addComponent(boxTipoEspacio)
+                                        .addComponent(txtTipoEspacio)
+                                        .addComponent(boxPosicion, javax.swing.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE))
+                                    .addComponent(btnAceptarInfo))
+                                .addGap(212, 212, 212)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtConfirmacionEspacio)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(btnConfirmar)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(btnEditar)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(btnEliminarEspacio))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(txtP)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(txtConfirmPosition, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(txtEspacio)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(txtConfirmTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(txtConfirmacion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -155,32 +265,71 @@ public class BienvenidoScreen extends javax.swing.JFrame {
                     .addComponent(txtBienvenida)
                     .addComponent(txtUsuario))
                 .addGap(18, 18, 18)
-                .addComponent(txtHorarios)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtHorarios)
+                    .addComponent(dropdownHorario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtHora))
+                .addGap(28, 28, 28)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtCapDisponible)
                     .addComponent(txtNumDisponible))
-                .addGap(34, 34, 34)
-                .addComponent(txtSeleccion)
-                .addGap(27, 27, 27)
+                .addGap(40, 40, 40)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(iconDiscapacitado)
-                    .addComponent(iconCargaElectrica)
-                    .addComponent(iconParking)
-                    .addComponent(iconParkingArea))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(iconDiscapacitado)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtDiscapacitados)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtDisponibilidadDis))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(iconCargaElectrica)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtCE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtDisponibilidadCE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(iconParkingArea)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtDTechado)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtDisponibilidadT))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(iconParking)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtRegulares)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtDisponibilidadR)))
+                .addGap(45, 45, 45)
+                .addComponent(txtSeleccion)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(checkboxDiscapacitado)
-                    .addComponent(checkboxCargaE)
-                    .addComponent(checkboxRegulares)
-                    .addComponent(checkboxTechado))
+                    .addComponent(txtTipoEspacio)
+                    .addComponent(txtConfirmacionEspacio))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtDisponibilidadDis)
-                    .addComponent(txtDisponibilidadCE)
-                    .addComponent(txtDisponibilidadR)
-                    .addComponent(txtDisponibilidadT))
-                .addContainerGap(288, Short.MAX_VALUE))
+                    .addComponent(boxTipoEspacio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtEspacio)
+                    .addComponent(txtConfirmTipo))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtPosicion))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(2, 2, 2)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtP)
+                            .addComponent(txtConfirmPosition))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(boxPosicion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnConfirmar)
+                    .addComponent(btnEditar)
+                    .addComponent(btnEliminarEspacio))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnAceptarInfo)
+                    .addComponent(txtConfirmacion))
+                .addContainerGap(135, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -191,33 +340,95 @@ public class BienvenidoScreen extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void dropdownHorarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dropdownHorarioActionPerformed
+        
+        // Obtenemos el dia seleccionado por el usuario
+        String diaSeleccionado = dropdownHorario.getSelectedItem().toString();
+        
+    }//GEN-LAST:event_dropdownHorarioActionPerformed
+
+    private void btnAceptarInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarInfoActionPerformed
+        
+        // Mostar los datos en la confirmación
+        String tipoEspacio = boxTipoEspacio.getText();
+        String posicion = boxPosicion.getText();
+        txtConfirmTipo.setText(tipoEspacio);
+        txtConfirmPosition.setText(posicion);
+        
+        //Limpiar Espacios
+        boxTipoEspacio.setText("");
+        boxPosicion.setText("");
+        
+    }//GEN-LAST:event_btnAceptarInfoActionPerformed
+
+    private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
+        
+        // Editar los datos
+        String tipoEspacio1 = txtConfirmTipo.getText();
+        String posicion1 = txtConfirmPosition.getText();
+        
+        boxTipoEspacio.setText(tipoEspacio1);
+        boxPosicion.setText(posicion1);
+    }//GEN-LAST:event_btnEditarActionPerformed
+
+    private void btnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmarActionPerformed
+        
+        // Deshabilitar los botones de Aceptar, Editar y Eliminar
+        btnAceptarInfo.setEnabled(false);
+        btnEditar.setEnabled(false);
+        btnEliminarEspacio.setEnabled(false);
+        
+        // Muestra mensaje de confirmación
+        txtConfirmacion.setText("Se ha confirmado su selección de campo.");
+       
+    }//GEN-LAST:event_btnConfirmarActionPerformed
+
+    private void btnEliminarEspacioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarEspacioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnEliminarEspacioActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JCheckBox checkboxCargaE;
-    private javax.swing.JCheckBox checkboxDiscapacitado;
-    private javax.swing.JCheckBox checkboxRegulares;
-    private javax.swing.JCheckBox checkboxTechado;
+    private javax.swing.JTextField boxPosicion;
+    private javax.swing.JTextField boxTipoEspacio;
+    private javax.swing.JButton btnAceptarInfo;
+    private javax.swing.JButton btnConfirmar;
+    private javax.swing.JButton btnEditar;
+    private javax.swing.JButton btnEliminarEspacio;
+    private javax.swing.JComboBox<String> dropdownHorario;
     private javax.swing.JLabel iconCargaElectrica;
     private javax.swing.JLabel iconDiscapacitado;
     private javax.swing.JLabel iconParking;
     private javax.swing.JLabel iconParkingArea;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollBar jScrollBar1;
     private javax.swing.JLabel txtBienvenida;
+    private javax.swing.JLabel txtCE;
     private javax.swing.JLabel txtCapDisponible;
+    private javax.swing.JLabel txtConfirmPosition;
+    private javax.swing.JLabel txtConfirmTipo;
+    private javax.swing.JLabel txtConfirmacion;
+    private javax.swing.JLabel txtConfirmacionEspacio;
+    private javax.swing.JLabel txtDTechado;
+    private javax.swing.JLabel txtDiscapacitados;
     private javax.swing.JLabel txtDisponibilidadCE;
     private javax.swing.JLabel txtDisponibilidadDis;
     private javax.swing.JLabel txtDisponibilidadR;
     private javax.swing.JLabel txtDisponibilidadT;
+    private javax.swing.JLabel txtEspacio;
+    private javax.swing.JLabel txtHora;
     private javax.swing.JLabel txtHorarios;
     private javax.swing.JLabel txtNumDisponible;
+    private javax.swing.JLabel txtP;
+    private javax.swing.JLabel txtPosicion;
+    private javax.swing.JLabel txtRegulares;
     private javax.swing.JLabel txtSeleccion;
+    private javax.swing.JLabel txtTipoEspacio;
     private javax.swing.JLabel txtUsuario;
     // End of variables declaration//GEN-END:variables
 }
