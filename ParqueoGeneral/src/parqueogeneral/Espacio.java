@@ -46,9 +46,6 @@ public class Espacio {
 
     public void setDisponible(boolean disponible) {
         this.disponible = disponible;
-    }
-    
-    
-    
+    }      
 }
 
