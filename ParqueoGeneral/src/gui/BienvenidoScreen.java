@@ -28,10 +28,26 @@ public class BienvenidoScreen extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollBar1 = new javax.swing.JScrollBar();
         jPanel1 = new javax.swing.JPanel();
         txtBienvenida = new javax.swing.JLabel();
-        txtConstruccion = new javax.swing.JLabel();
         txtUsuario = new javax.swing.JLabel();
+        txtHorarios = new javax.swing.JLabel();
+        txtCapDisponible = new javax.swing.JLabel();
+        txtNumDisponible = new javax.swing.JLabel();
+        txtSeleccion = new javax.swing.JLabel();
+        iconDiscapacitado = new javax.swing.JLabel();
+        checkboxDiscapacitado = new javax.swing.JCheckBox();
+        txtDisponibilidadDis = new javax.swing.JLabel();
+        iconCargaElectrica = new javax.swing.JLabel();
+        checkboxCargaE = new javax.swing.JCheckBox();
+        txtDisponibilidadCE = new javax.swing.JLabel();
+        iconParking = new javax.swing.JLabel();
+        checkboxRegulares = new javax.swing.JCheckBox();
+        txtDisponibilidadR = new javax.swing.JLabel();
+        iconParkingArea = new javax.swing.JLabel();
+        checkboxTechado = new javax.swing.JCheckBox();
+        txtDisponibilidadT = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -41,12 +57,52 @@ public class BienvenidoScreen extends javax.swing.JFrame {
         txtBienvenida.setForeground(new java.awt.Color(255, 255, 255));
         txtBienvenida.setText("Bienvenid@");
 
-        txtConstruccion.setFont(new java.awt.Font("Helvetica Neue", 1, 24)); // NOI18N
-        txtConstruccion.setForeground(new java.awt.Color(255, 255, 255));
-        txtConstruccion.setText("Available soon...");
-
         txtUsuario.setFont(new java.awt.Font("Helvetica Neue", 0, 24)); // NOI18N
         txtUsuario.setForeground(new java.awt.Color(255, 255, 255));
+
+        txtHorarios.setForeground(new java.awt.Color(255, 255, 255));
+        txtHorarios.setText("Horario de atención L-V 8AM - 5PM");
+
+        txtCapDisponible.setForeground(new java.awt.Color(255, 255, 255));
+        txtCapDisponible.setText("Capacidad disponible:");
+
+        txtNumDisponible.setForeground(new java.awt.Color(255, 255, 255));
+        txtNumDisponible.setText("disponible");
+
+        txtSeleccion.setForeground(new java.awt.Color(255, 255, 255));
+        txtSeleccion.setText("Seleccione su espacio:");
+
+        iconDiscapacitado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/disabled.png"))); // NOI18N
+
+        checkboxDiscapacitado.setForeground(new java.awt.Color(255, 255, 255));
+        checkboxDiscapacitado.setText("Discapacitado");
+
+        txtDisponibilidadDis.setForeground(new java.awt.Color(255, 255, 255));
+        txtDisponibilidadDis.setText("jLabel1");
+
+        iconCargaElectrica.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/electric-vehicle.png"))); // NOI18N
+
+        checkboxCargaE.setForeground(new java.awt.Color(255, 255, 255));
+        checkboxCargaE.setText("Carga Electrica");
+
+        txtDisponibilidadCE.setForeground(new java.awt.Color(255, 255, 255));
+        txtDisponibilidadCE.setText("jLabel1");
+
+        iconParking.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/signage.png"))); // NOI18N
+
+        checkboxRegulares.setForeground(new java.awt.Color(255, 255, 255));
+        checkboxRegulares.setText("Regulares");
+
+        txtDisponibilidadR.setForeground(new java.awt.Color(255, 255, 255));
+        txtDisponibilidadR.setText("jLabel1");
+
+        iconParkingArea.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/parking-area.png"))); // NOI18N
+
+        checkboxTechado.setForeground(new java.awt.Color(255, 255, 255));
+        checkboxTechado.setText("Techado");
+
+        txtDisponibilidadT.setForeground(new java.awt.Color(255, 255, 255));
+        txtDisponibilidadT.setText("jLabel1");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -54,14 +110,42 @@ public class BienvenidoScreen extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(23, 23, 23)
-                .addComponent(txtBienvenida)
-                .addGap(18, 18, 18)
-                .addComponent(txtUsuario)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(363, Short.MAX_VALUE)
-                .addComponent(txtConstruccion)
-                .addGap(349, 349, 349))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(txtCapDisponible)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtNumDisponible))
+                            .addComponent(txtHorarios)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(txtBienvenida)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtUsuario)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(iconDiscapacitado)
+                                .addComponent(checkboxDiscapacitado)
+                                .addComponent(txtDisponibilidadDis))
+                            .addComponent(txtSeleccion))
+                        .addGap(106, 106, 106)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(iconCargaElectrica)
+                            .addComponent(checkboxCargaE)
+                            .addComponent(txtDisponibilidadCE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 117, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(iconParking)
+                            .addComponent(checkboxRegulares)
+                            .addComponent(txtDisponibilidadR))
+                        .addGap(101, 101, 101)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtDisponibilidadT)
+                            .addComponent(checkboxTechado)
+                            .addComponent(iconParkingArea))
+                        .addGap(119, 119, 119))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -70,9 +154,33 @@ public class BienvenidoScreen extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtBienvenida)
                     .addComponent(txtUsuario))
-                .addGap(163, 163, 163)
-                .addComponent(txtConstruccion)
-                .addContainerGap(236, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(txtHorarios)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtCapDisponible)
+                    .addComponent(txtNumDisponible))
+                .addGap(34, 34, 34)
+                .addComponent(txtSeleccion)
+                .addGap(27, 27, 27)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(iconDiscapacitado)
+                    .addComponent(iconCargaElectrica)
+                    .addComponent(iconParking)
+                    .addComponent(iconParkingArea))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(checkboxDiscapacitado)
+                    .addComponent(checkboxCargaE)
+                    .addComponent(checkboxRegulares)
+                    .addComponent(checkboxTechado))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtDisponibilidadDis)
+                    .addComponent(txtDisponibilidadCE)
+                    .addComponent(txtDisponibilidadR)
+                    .addComponent(txtDisponibilidadT))
+                .addContainerGap(288, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -91,9 +199,25 @@ public class BienvenidoScreen extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JCheckBox checkboxCargaE;
+    private javax.swing.JCheckBox checkboxDiscapacitado;
+    private javax.swing.JCheckBox checkboxRegulares;
+    private javax.swing.JCheckBox checkboxTechado;
+    private javax.swing.JLabel iconCargaElectrica;
+    private javax.swing.JLabel iconDiscapacitado;
+    private javax.swing.JLabel iconParking;
+    private javax.swing.JLabel iconParkingArea;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollBar jScrollBar1;
     private javax.swing.JLabel txtBienvenida;
-    private javax.swing.JLabel txtConstruccion;
+    private javax.swing.JLabel txtCapDisponible;
+    private javax.swing.JLabel txtDisponibilidadCE;
+    private javax.swing.JLabel txtDisponibilidadDis;
+    private javax.swing.JLabel txtDisponibilidadR;
+    private javax.swing.JLabel txtDisponibilidadT;
+    private javax.swing.JLabel txtHorarios;
+    private javax.swing.JLabel txtNumDisponible;
+    private javax.swing.JLabel txtSeleccion;
     private javax.swing.JLabel txtUsuario;
     // End of variables declaration//GEN-END:variables
 }
