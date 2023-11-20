@@ -61,7 +61,6 @@
                                   <Component id="boxCantidadEspacio" alignment="0" max="32767" attributes="0"/>
                               </Group>
                               <Component id="jSeparator1" min="-2" pref="172" max="-2" attributes="0"/>
-                              <Component id="txtID" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace pref="205" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
@@ -104,6 +103,7 @@
                       </Group>
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="txtID" min="-2" max="-2" attributes="0"/>
                               <Component id="boxID" alignment="0" min="-2" pref="172" max="-2" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="btnAgregar" min="-2" max="-2" attributes="0"/>
@@ -186,14 +186,15 @@
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
-                      <Group type="102" alignment="1" attributes="0">
+                      <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="txtEspacioD" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="txtEspacioCE" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="317" max="32767" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                       </Group>
-                      <Group type="102" alignment="1" attributes="0">
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
                           <Component id="txtID" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="boxID" min="-2" max="-2" attributes="0"/>
@@ -202,7 +203,7 @@
                               <Component id="btnAgregar" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="btnEditar" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="204" max="-2" attributes="0"/>
+                          <EmptySpace pref="224" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -284,7 +285,7 @@
         <Component class="javax.swing.JLabel" name="txtEspacioG">
           <Properties>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="cc" green="cc" red="ff" type="rgb"/>
+              <Color blue="0" green="da" red="ff" type="rgb"/>
             </Property>
           </Properties>
         </Component>
@@ -306,7 +307,7 @@
         <Component class="javax.swing.JLabel" name="txtEspacioT">
           <Properties>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="cc" green="cc" red="ff" type="rgb"/>
+              <Color blue="0" green="da" red="ff" type="rgb"/>
             </Property>
           </Properties>
         </Component>
@@ -328,7 +329,7 @@
         <Component class="javax.swing.JLabel" name="txtEspacioD">
           <Properties>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="cc" green="cc" red="ff" type="rgb"/>
+              <Color blue="0" green="da" red="ff" type="rgb"/>
             </Property>
           </Properties>
         </Component>
@@ -350,7 +351,7 @@
         <Component class="javax.swing.JLabel" name="txtEspacioCE">
           <Properties>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="cc" green="cc" red="ff" type="rgb"/>
+              <Color blue="0" green="da" red="ff" type="rgb"/>
             </Property>
           </Properties>
         </Component>
