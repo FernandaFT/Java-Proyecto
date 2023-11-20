@@ -2,26 +2,24 @@
 package parqueogeneral;
 
 public class Espacio {
-    private int identificador;
+    private int id;
     private String tipo;
-    private int capacidad;
-    private boolean disponible;
-
-    // Constructor
-    public Espacio(int identificador, String tipo, int capacidad, boolean disponible) {
-        this.identificador = identificador;
-        this.tipo = tipo;
-        this.capacidad = capacidad;
-        this.disponible = disponible;
-    }
+    private int cantidadEspacioOcupados;
     
-    // Getters y Setters
-    public int getIdentificador() {
-        return identificador;
+    //Constructor
+    public Espacio(int id, String tipo, int cantidadEspacioOcupados) {
+        this.id = id;
+        this.tipo = tipo;
+        this.cantidadEspacioOcupados = cantidadEspacioOcupados;
     }
 
-    public void setIdentificador(int identificador) {
-        this.identificador = identificador;
+    //Getters y Setters
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getTipo() {
@@ -32,20 +30,14 @@ public class Espacio {
         this.tipo = tipo;
     }
 
-    public int getCapacidad() {
-        return capacidad;
+    public int getCantidadEspacioOcupados() {
+        return cantidadEspacioOcupados;
     }
 
-    public void setCapacidad(int capacidad) {
-        this.capacidad = capacidad;
+    public void setCantidadEspacioOcupados(int cantidadEspacioOcupados) {
+        this.cantidadEspacioOcupados = cantidadEspacioOcupados;
     }
-
-    public boolean isDisponible() {
-        return disponible;
-    }
-
-    public void setDisponible(boolean disponible) {
-        this.disponible = disponible;
-    }      
+    
+    
 }
 

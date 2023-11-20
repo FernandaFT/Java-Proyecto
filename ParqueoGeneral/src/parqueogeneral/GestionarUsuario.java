@@ -16,7 +16,7 @@ public class GestionarUsuario {
         numeroUsuarios = 0;
     }
     
-    // Método para ibtener la instancia única
+    // Método para obtener la instancia única
     public static GestionarUsuario getInstace(){
         if(instance == null){
             instance = new GestionarUsuario(10000);
