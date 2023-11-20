@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package gui;
 
 import parqueogeneral.GestionarParqueo;
@@ -12,9 +9,6 @@ import parqueogeneral.GestionarParqueo;
  */
 public class BienvenidoScreen extends javax.swing.JFrame {
 
-    /**
-     * Creates new form BienvenidoScreen
-     */
 //    private GestionarParqueo gestionarParqueo = new GestionarParqueo();
     
     public BienvenidoScreen() {
@@ -91,28 +85,28 @@ public class BienvenidoScreen extends javax.swing.JFrame {
         txtRegulares.setForeground(new java.awt.Color(255, 255, 255));
         txtRegulares.setText("1. General");
 
-        txtEspacioG.setForeground(new java.awt.Color(255, 204, 204));
+        txtEspacioG.setForeground(new java.awt.Color(255, 218, 0));
 
         iconTechado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/parking-area.png"))); // NOI18N
 
         txtTechado.setForeground(new java.awt.Color(255, 255, 255));
         txtTechado.setText("2. Techado");
 
-        txtEspacioT.setForeground(new java.awt.Color(255, 204, 204));
+        txtEspacioT.setForeground(new java.awt.Color(255, 218, 0));
 
         iconDiscapacitado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/disabled.png"))); // NOI18N
 
         txtDiscapacitados.setForeground(new java.awt.Color(255, 255, 255));
         txtDiscapacitados.setText("3. Discapacitado");
 
-        txtEspacioD.setForeground(new java.awt.Color(255, 204, 204));
+        txtEspacioD.setForeground(new java.awt.Color(255, 218, 0));
 
         iconCargaElectrica.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/electric-vehicle.png"))); // NOI18N
 
         txtCE.setForeground(new java.awt.Color(255, 255, 255));
         txtCE.setText("4. Carga Electrica");
 
-        txtEspacioCE.setForeground(new java.awt.Color(255, 204, 204));
+        txtEspacioCE.setForeground(new java.awt.Color(255, 218, 0));
 
         jLabel1.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -157,8 +151,7 @@ public class BienvenidoScreen extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(boxTipoEspacio, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 172, Short.MAX_VALUE)
                                 .addComponent(boxCantidadEspacio, javax.swing.GroupLayout.Alignment.LEADING))
-                            .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtID))
+                            .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 205, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -191,6 +184,7 @@ public class BienvenidoScreen extends javax.swing.JFrame {
                         .addContainerGap())
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtID)
                             .addComponent(boxID, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(btnAgregar)
@@ -257,8 +251,9 @@ public class BienvenidoScreen extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtEspacioD)
                             .addComponent(txtEspacioCE))
-                        .addContainerGap(317, Short.MAX_VALUE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
                         .addComponent(txtID)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(boxID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -266,7 +261,7 @@ public class BienvenidoScreen extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnAgregar)
                             .addComponent(btnEditar))
-                        .addGap(204, 204, 204))))
+                        .addContainerGap(224, Short.MAX_VALUE))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -294,11 +289,11 @@ public class BienvenidoScreen extends javax.swing.JFrame {
         txtEspacioG.setText(String.valueOf(gestionarParqueo.mostrarEspaciosDisponibles(diaSeleccionado, 0)+ " espacios"));
         txtEspacioT.setText(String.valueOf(gestionarParqueo.mostrarEspaciosDisponibles(diaSeleccionado, 1)+ " espacios"));
         txtEspacioD.setText(String.valueOf(gestionarParqueo.mostrarEspaciosDisponibles(diaSeleccionado, 2)+ " espacios"));
-    txtEspacioCE.setText(String.valueOf(gestionarParqueo.mostrarEspaciosDisponibles(diaSeleccionado, 3)+ " espacios"));
+        txtEspacioCE.setText(String.valueOf(gestionarParqueo.mostrarEspaciosDisponibles(diaSeleccionado, 3)+ " espacios"));
     }//GEN-LAST:event_comboBoxDiasActionPerformed
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_btnAgregarActionPerformed
 
 
