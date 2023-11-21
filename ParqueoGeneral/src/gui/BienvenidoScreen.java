@@ -5,6 +5,7 @@
 package gui;
 
 //import parqueogeneral.Espacio;
+import javax.swing.JOptionPane;
 import parqueogeneral.GestionarParqueo;
 //import parqueogeneral.Usuario;
 
@@ -282,9 +283,8 @@ public class BienvenidoScreen extends javax.swing.JFrame {
                         .addComponent(boxTipoEspacio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(txtEspacioD)
-                        .addComponent(txtEspacioCE))
+                    .addComponent(txtEspacioD, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtEspacioCE, javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                         .addGap(6, 6, 6)
                         .addComponent(txtID)
@@ -340,24 +340,25 @@ public class BienvenidoScreen extends javax.swing.JFrame {
         String tipo = boxTipoEspacio.getText();
         int cantidadEspaciosOcupados = Integer.parseInt(boxCantidadEspacio.getText());
         
-        // Llamar al método agregarEspacio de la instancia parqueo para añadir el nuevo espacio
-        parqueo.agregarEspacio(id, tipo, cantidadEspaciosOcupados);
+        // Verificar si el espacio es válido antes de actualizar los campos y deshabilitar el botón
+        boolean espacioValido = parqueo.agregarEspacioValido(id, tipo, cantidadEspaciosOcupados);
 
-        // Mostrar los espacios después de agregar el nuevo espacio usando la instancia parqueo
-        parqueo.mostrarEspacios();
-        
-        
-        //Mostrar Datos confirmados
-        txtConfirmID.setText("ID: "+ id);
-        txtConfirmTipoE.setText("Tipo de espacio: "+ tipo);
-        txtConfirmCantE.setText("Cantidad de espacios: "+ cantidadEspaciosOcupados);
-        
-        // Deshabilitar el botón después de agregar los datos
-        btnAgregar.setEnabled(false);
+        if (espacioValido) {
+            // Mostrar Datos confirmados solo si el espacio es válido
+            txtConfirmID.setText("ID: " + id);
+            txtConfirmTipoE.setText("Tipo de espacio: " + tipo);
+            txtConfirmCantE.setText("Cantidad de espacios: " + cantidadEspaciosOcupados);
+
+            // Deshabilitar el botón después de agregar los datos solo si el espacio es válido
+            btnAgregar.setEnabled(false);
+        }
+ 
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
-        // TODO add your handling code here:
+
+        // Volver a habilitar el botón agregar después de editar
+        btnAgregar.setEnabled(true);
     }//GEN-LAST:event_btnEditarActionPerformed
 
 
