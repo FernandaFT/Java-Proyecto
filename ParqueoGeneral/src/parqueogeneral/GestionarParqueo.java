@@ -96,4 +96,16 @@ public class GestionarParqueo {
             return false; // Indicar que no se encontró el espacio
         }
     }
+    
+    // Método para eliminar los datos correspondientes a un espacio
+    public boolean eliminarEspacio(int codigo) {
+        if (mapaEspacios.containsKey(codigo)) {
+            mapaEspacios.remove(codigo); // Eliminar del mapa
+            System.out.println("Espacio eliminado con éxito: Código: " + codigo);
+            return true; // Indicar que se eliminó exitosamente
+        } else {
+            System.out.println("No se encontró el espacio con el código: " + codigo);
+            return false; // Indicar que no se encontró el espacio
+        }
+    }
 }

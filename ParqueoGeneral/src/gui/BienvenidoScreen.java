@@ -14,6 +14,7 @@ import parqueogeneral.GestionarParqueo;
 public class BienvenidoScreen extends javax.swing.JFrame {
 
     private GestionarParqueo gestionarParqueo;
+   
     
     public BienvenidoScreen() {
         initComponents();
@@ -62,6 +63,7 @@ public class BienvenidoScreen extends javax.swing.JFrame {
         txtConfirmID = new javax.swing.JLabel();
         txtConfirmTipoE = new javax.swing.JLabel();
         txtConfirmCantE = new javax.swing.JLabel();
+        btnEliminar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -146,10 +148,20 @@ public class BienvenidoScreen extends javax.swing.JFrame {
         txtDatos.setText("Datos Confirmados");
 
         txtConfirmID.setForeground(new java.awt.Color(255, 255, 255));
+        txtConfirmID.setText("Código:");
 
         txtConfirmTipoE.setForeground(new java.awt.Color(255, 255, 255));
+        txtConfirmTipoE.setText("Tipo de espacio:");
 
         txtConfirmCantE.setForeground(new java.awt.Color(255, 255, 255));
+        txtConfirmCantE.setText("Cantidad de espacios:");
+
+        btnEliminar.setText("Eliminar");
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -203,6 +215,7 @@ public class BienvenidoScreen extends javax.swing.JFrame {
                         .addContainerGap())
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnEliminar)
                             .addComponent(txtConfirmCantE)
                             .addComponent(txtConfirmTipoE)
                             .addComponent(txtConfirmID)
@@ -283,7 +296,9 @@ public class BienvenidoScreen extends javax.swing.JFrame {
                 .addComponent(txtConfirmTipoE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(txtConfirmCantE)
-                .addContainerGap(178, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                .addComponent(btnEliminar)
+                .addGap(74, 74, 74))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -313,27 +328,35 @@ public class BienvenidoScreen extends javax.swing.JFrame {
     }//GEN-LAST:event_comboBoxDiasActionPerformed
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
-   
-        // Obtener los valores de los campos
-        String tipo = boxTipoEspacio.getText();
-        int cantidadEspaciosOcupados = Integer.parseInt(boxCantidadEspacio.getText());
-        
-        int codigo = gestionarParqueo.agregarEspacio(tipo, cantidadEspaciosOcupados);
 
-        if (codigo != -1) {
-            // Si se agregó el espacio correctamente, realiza las siguientes acciones
-            txtConfirmID.setText("Código: " + codigo);
-            txtConfirmTipoE.setText("Tipo de espacio: " + tipo);
-            txtConfirmCantE.setText("Cantidad de espacios: " + cantidadEspaciosOcupados);
-            btnAgregar.setEnabled(false); // Deshabilita el botón después de agregar los datos
+        // Obtener los valores de los campos
+        String tipo = boxTipoEspacio.getText().trim().toLowerCase(); // Obtener y normalizar el tipo de espacio
+
+        // Verificar que el tipo sea válido
+        if (tipo.equals("general") || tipo.equals("techado") || tipo.equals("discapacitado") || tipo.equals("carga electrica")) {
+            // Si el tipo es válido, proceder a agregar el espacio
+            int cantidadEspaciosOcupados = Integer.parseInt(boxCantidadEspacio.getText());
+            int codigo = gestionarParqueo.agregarEspacio(tipo, cantidadEspaciosOcupados);
+
+            if (codigo != -1) {
+                // Si se agregó el espacio correctamente, realiza las siguientes acciones
+                txtConfirmID.setText("Código: " + codigo);
+                txtConfirmTipoE.setText("Tipo de espacio: " + tipo);
+                txtConfirmCantE.setText("Cantidad de espacios: " + cantidadEspaciosOcupados);
+                btnAgregar.setEnabled(false); // Deshabilita el botón después de agregar los datos
+            } else {
+                // Si no se pudo agregar el espacio, muestra un mensaje o realiza acciones apropiadas
+                JOptionPane.showMessageDialog(null, "No se pudo agregar el espacio. Espacio lleno.");
+            }
         } else {
-            // Si no se pudo agregar el espacio, muestra un mensaje o realiza acciones apropiadas
-            JOptionPane.showMessageDialog(null, "No se pudo agregar el espacio. Espacio lleno.");
+            // Si el tipo no es válido, muestra un mensaje de error
+            JOptionPane.showMessageDialog(null, "Tipo de espacio inválido. Los tipos válidos son: General, Techado, Discapacitado, Carga Electrica");
         }
-        
+
         //Borrar los datos del box
         boxTipoEspacio.setText("");
         boxCantidadEspacio.setText("");
+        
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
@@ -374,6 +397,44 @@ public class BienvenidoScreen extends javax.swing.JFrame {
         }
         btnEditar.setEnabled(false); // Deshabilita el botón
     }//GEN-LAST:event_btnEditarActionPerformed
+    
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+        String codigoStr = JOptionPane.showInputDialog(null, "Ingrese el código del espacio a eliminar:");
+
+        // Verificar si se ingresó algo en el cuadro de diálogo
+        if (codigoStr != null && !codigoStr.isEmpty()) {
+            try {
+                int codigo = Integer.parseInt(codigoStr);
+
+                // Aquí llamas al método eliminarEspacio con el código ingresado por el usuario
+                boolean eliminadoExitosamente = gestionarParqueo.eliminarEspacio(codigo);
+
+                if (eliminadoExitosamente) {
+                    // Mostrar mensaje de éxito
+                    System.out.println("Espacio eliminado con éxito: Código: " + codigo);
+                    
+                    // Quitar los datos
+                    txtConfirmID.setText("");
+                    txtConfirmTipoE.setText("");
+                    txtConfirmCantE.setText("");
+                    
+                    // Mostrar un mensaje de éxito o realizar otras acciones necesarias
+                    JOptionPane.showMessageDialog(null, "Espacio eliminado con éxito.");
+                    
+                    btnEliminar.setEnabled(false); // Deshabilita el botón
+                    btnEditar.setEnabled(false);
+                } else {
+                    // Mostrar un mensaje de error si no se encontró el espacio
+                    JOptionPane.showMessageDialog(null, "No se encontró el espacio con el código: " + codigo);
+                }
+            } catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(null, "Ingrese un código válido (número entero).");
+            }
+        } else {
+            // Manejar caso en el que el usuario cancela la entrada
+            JOptionPane.showMessageDialog(null, "No se ingresó ningún código.");
+        }
+    }//GEN-LAST:event_btnEliminarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -381,6 +442,7 @@ public class BienvenidoScreen extends javax.swing.JFrame {
     private javax.swing.JTextField boxTipoEspacio;
     private javax.swing.JButton btnAgregar;
     private javax.swing.JButton btnEditar;
+    private javax.swing.JButton btnEliminar;
     private javax.swing.JComboBox<String> comboBoxDias;
     private javax.swing.JLabel iconCargaElectrica;
     private javax.swing.JLabel iconDiscapacitado;
