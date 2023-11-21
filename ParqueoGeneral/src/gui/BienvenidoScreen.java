@@ -4,10 +4,8 @@
  */
 package gui;
 
-//import parqueogeneral.Espacio;
 import javax.swing.JOptionPane;
 import parqueogeneral.GestionarParqueo;
-//import parqueogeneral.Usuario;
 
 /**
  *
@@ -15,14 +13,11 @@ import parqueogeneral.GestionarParqueo;
  */
 public class BienvenidoScreen extends javax.swing.JFrame {
 
-    /**
-     * Creates new form BienvenidoScreen
-     */
-
-    GestionarParqueo parqueo = new GestionarParqueo(100);
+    private GestionarParqueo gestionarParqueo;
     
     public BienvenidoScreen() {
         initComponents();
+        gestionarParqueo = GestionarParqueo.obtenerInstancia(1000);
     }
     //Nombre del usuario mostrado en la pantalla
     public void setNombreUsuario(String nombre){
@@ -61,8 +56,6 @@ public class BienvenidoScreen extends javax.swing.JFrame {
         txtTipoEspacio = new javax.swing.JLabel();
         boxTipoEspacio = new javax.swing.JTextField();
         jSeparator1 = new javax.swing.JSeparator();
-        txtID = new javax.swing.JLabel();
-        boxID = new javax.swing.JTextField();
         btnEditar = new javax.swing.JButton();
         btnAgregar = new javax.swing.JButton();
         txtDatos = new javax.swing.JLabel();
@@ -133,9 +126,6 @@ public class BienvenidoScreen extends javax.swing.JFrame {
         txtTipoEspacio.setText("Tipo de espacio");
 
         jSeparator1.setBackground(new java.awt.Color(255, 255, 255));
-
-        txtID.setForeground(new java.awt.Color(255, 255, 255));
-        txtID.setText("ID");
 
         btnEditar.setText("Editar");
         btnEditar.addActionListener(new java.awt.event.ActionListener() {
@@ -213,19 +203,14 @@ public class BienvenidoScreen extends javax.swing.JFrame {
                         .addContainerGap())
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtID)
-                            .addComponent(boxID, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtConfirmCantE)
+                            .addComponent(txtConfirmTipoE)
+                            .addComponent(txtConfirmID)
+                            .addComponent(txtDatos, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(2, 2, 2)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtConfirmID)
-                                    .addComponent(txtDatos, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtConfirmTipoE)
-                                    .addComponent(txtConfirmCantE)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(btnAgregar)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(btnAgregar)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 0, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
@@ -286,23 +271,19 @@ public class BienvenidoScreen extends javax.swing.JFrame {
                     .addComponent(txtEspacioD, javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtEspacioCE, javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(txtID)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(boxID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addGap(14, 14, 14)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnEditar)
-                            .addComponent(btnAgregar))))
-                .addGap(39, 39, 39)
+                            .addComponent(btnAgregar)
+                            .addComponent(btnEditar))))
+                .addGap(43, 43, 43)
                 .addComponent(txtDatos)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addComponent(txtConfirmID)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(txtConfirmTipoE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(txtConfirmCantE)
-                .addContainerGap(150, Short.MAX_VALUE))
+                .addContainerGap(178, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -324,8 +305,6 @@ public class BienvenidoScreen extends javax.swing.JFrame {
         // Obtener el día seleccionado del comboBox (suponiendo que comboBoxDias tiene los días de la semana numerados del 1 al 5)
         int diaSeleccionado = comboBoxDias.getSelectedIndex() + 1;
 
-        GestionarParqueo gestionarParqueo = new GestionarParqueo();
-
         // Mostrar los espacios disponibles para cada tipo de espacio en los campos de texto correspondientes
         txtEspacioG.setText(String.valueOf(gestionarParqueo.mostrarEspaciosDisponibles(diaSeleccionado, 0)+ " espacios"));
         txtEspacioT.setText(String.valueOf(gestionarParqueo.mostrarEspaciosDisponibles(diaSeleccionado, 1)+ " espacios"));
@@ -336,26 +315,46 @@ public class BienvenidoScreen extends javax.swing.JFrame {
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
    
         // Obtener los valores de los campos
-        int id = Integer.parseInt(boxID.getText());
         String tipo = boxTipoEspacio.getText();
         int cantidadEspaciosOcupados = Integer.parseInt(boxCantidadEspacio.getText());
         
-        // Verificar si el espacio es válido antes de actualizar los campos y deshabilitar el botón
-        boolean espacioValido = parqueo.agregarEspacioValido(id, tipo, cantidadEspaciosOcupados);
+        int codigo = gestionarParqueo.agregarEspacio(tipo, cantidadEspaciosOcupados);
 
-        if (espacioValido) {
-            // Mostrar Datos confirmados solo si el espacio es válido
-            txtConfirmID.setText("ID: " + id);
+        if (codigo != -1) {
+            // Si se agregó el espacio correctamente, realiza las siguientes acciones
+            txtConfirmID.setText("Código: " + codigo);
             txtConfirmTipoE.setText("Tipo de espacio: " + tipo);
             txtConfirmCantE.setText("Cantidad de espacios: " + cantidadEspaciosOcupados);
-
-            // Deshabilitar el botón después de agregar los datos solo si el espacio es válido
-            btnAgregar.setEnabled(false);
+            btnAgregar.setEnabled(false); // Deshabilita el botón después de agregar los datos
+        } else {
+            // Si no se pudo agregar el espacio, muestra un mensaje o realiza acciones apropiadas
+            JOptionPane.showMessageDialog(null, "No se pudo agregar el espacio. Espacio lleno.");
         }
  
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
+       
+        String codigoStr = JOptionPane.showInputDialog(null, "Ingrese el código del espacio a editar:");
+
+        if (codigoStr != null && !codigoStr.isEmpty()) {
+            int codigo = Integer.parseInt(codigoStr);
+            String nuevoTipo = boxTipoEspacio.getText();
+            int nuevoCantidadEspaciosOcupados = Integer.parseInt(boxCantidadEspacio.getText());
+
+            // Obtener el último código generado
+            int ultimoCodigoGenerado = gestionarParqueo.obtenerUltimoCodigoGenerado();
+
+            // Verificar si el código ingresado coincide con el último código generado
+            if (codigo == ultimoCodigoGenerado) {
+                gestionarParqueo.editarEspacio(codigo, nuevoTipo, nuevoCantidadEspaciosOcupados);
+                System.out.println("Espacio editado exitosamente.");
+            } else {
+                System.out.println("El código ingresado no coincide con el último código generado.");
+            }
+        } else {
+            System.out.println("No se proporcionó un código de espacio válido para editar.");
+        }
 
         // Volver a habilitar el botón agregar después de editar
         btnAgregar.setEnabled(true);
@@ -364,7 +363,6 @@ public class BienvenidoScreen extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField boxCantidadEspacio;
-    private javax.swing.JTextField boxID;
     private javax.swing.JTextField boxTipoEspacio;
     private javax.swing.JButton btnAgregar;
     private javax.swing.JButton btnEditar;
@@ -390,7 +388,6 @@ public class BienvenidoScreen extends javax.swing.JFrame {
     private javax.swing.JLabel txtEspacioG;
     private javax.swing.JLabel txtEspacioT;
     private javax.swing.JLabel txtHorarios;
-    private javax.swing.JLabel txtID;
     private javax.swing.JLabel txtRegulares;
     private javax.swing.JLabel txtTechado;
     private javax.swing.JLabel txtTipoEspacio;

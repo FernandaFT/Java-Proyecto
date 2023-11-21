@@ -5,16 +5,15 @@
             <url>src/gui/BienvenidoScreen.java</url>
             <bookmark id="1">
                 <name/>
-                <line>354</line>
+                <line>321</line>
                 <key/>
             </bookmark>
         </file>
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/Users/fernandafajardo/Desktop/Ing-Sistemas/IntroProgramacion/Java-Proyecto/ParqueoGeneral/src/parqueogeneral/GestionarParqueo.java</file>
             <file>file:/Users/fernandafajardo/Desktop/Ing-Sistemas/IntroProgramacion/Java-Proyecto/ParqueoGeneral/src/parqueogeneral/Espacio.java</file>
-            <file>file:/Users/fernandafajardo/Desktop/Ing-Sistemas/IntroProgramacion/Java-Proyecto/ParqueoGeneral/src/parqueogeneral/GestorEstacionamiento.java</file>
-            <file>file:/Users/fernandafajardo/Desktop/Ing-Sistemas/IntroProgramacion/Java-Proyecto/ParqueoGeneral/src/parqueogeneral/GestionarUsuario.java</file>
             <file>file:/Users/fernandafajardo/Desktop/Ing-Sistemas/IntroProgramacion/Java-Proyecto/ParqueoGeneral/src/parqueogeneral/ParqueoGeneral.java</file>
             <file>file:/Users/fernandafajardo/Desktop/Ing-Sistemas/IntroProgramacion/Java-Proyecto/ParqueoGeneral/src/gui/BienvenidoScreen.java</file>
         </group>
