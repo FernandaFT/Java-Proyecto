@@ -41,7 +41,7 @@ public class GestionarParqueo {
         }
     }
     
-    // Método para mostrar todos los espacios (depuracion)
+    //mostrar todos los espacios (Depuración)
     public void mostrarEspacios() {
         for (int i = 0; i < cantidadEspacios; i++) {
             System.out.println("ID: " + espacios[i].getId() +

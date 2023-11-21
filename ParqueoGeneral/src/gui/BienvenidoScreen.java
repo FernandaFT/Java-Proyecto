@@ -64,6 +64,10 @@ public class BienvenidoScreen extends javax.swing.JFrame {
         boxID = new javax.swing.JTextField();
         btnEditar = new javax.swing.JButton();
         btnAgregar = new javax.swing.JButton();
+        txtDatos = new javax.swing.JLabel();
+        txtConfirmID = new javax.swing.JLabel();
+        txtConfirmTipoE = new javax.swing.JLabel();
+        txtConfirmCantE = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -133,6 +137,11 @@ public class BienvenidoScreen extends javax.swing.JFrame {
         txtID.setText("ID");
 
         btnEditar.setText("Editar");
+        btnEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditarActionPerformed(evt);
+            }
+        });
 
         btnAgregar.setText("Agregar");
         btnAgregar.addActionListener(new java.awt.event.ActionListener() {
@@ -140,6 +149,16 @@ public class BienvenidoScreen extends javax.swing.JFrame {
                 btnAgregarActionPerformed(evt);
             }
         });
+
+        txtDatos.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        txtDatos.setForeground(new java.awt.Color(255, 218, 0));
+        txtDatos.setText("Datos Confirmados");
+
+        txtConfirmID.setForeground(new java.awt.Color(255, 255, 255));
+
+        txtConfirmTipoE.setForeground(new java.awt.Color(255, 255, 255));
+
+        txtConfirmCantE.setForeground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -194,13 +213,18 @@ public class BienvenidoScreen extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtID)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                    .addGap(2, 2, 2)
-                                    .addComponent(btnAgregar)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(boxID, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(boxID, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(2, 2, 2)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtConfirmID)
+                                    .addComponent(txtDatos, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtConfirmTipoE)
+                                    .addComponent(txtConfirmCantE)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(btnAgregar)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                         .addGap(0, 0, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
@@ -258,12 +282,10 @@ public class BienvenidoScreen extends javax.swing.JFrame {
                         .addComponent(boxTipoEspacio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtEspacioD)
-                            .addComponent(txtEspacioCE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txtEspacioD)
+                        .addComponent(txtEspacioCE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                         .addGap(6, 6, 6)
                         .addComponent(txtID)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -271,8 +293,16 @@ public class BienvenidoScreen extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnEditar)
-                            .addComponent(btnAgregar))
-                        .addContainerGap(224, Short.MAX_VALUE))))
+                            .addComponent(btnAgregar))))
+                .addGap(39, 39, 39)
+                .addComponent(txtDatos)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtConfirmID)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtConfirmTipoE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtConfirmCantE)
+                .addContainerGap(150, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -304,8 +334,7 @@ public class BienvenidoScreen extends javax.swing.JFrame {
     }//GEN-LAST:event_comboBoxDiasActionPerformed
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
-    
-
+   
         // Obtener los valores de los campos
         int id = Integer.parseInt(boxID.getText());
         String tipo = boxTipoEspacio.getText();
@@ -316,8 +345,20 @@ public class BienvenidoScreen extends javax.swing.JFrame {
 
         // Mostrar los espacios después de agregar el nuevo espacio usando la instancia parqueo
         parqueo.mostrarEspacios();
-
+        
+        
+        //Mostrar Datos confirmados
+        txtConfirmID.setText("ID: "+ id);
+        txtConfirmTipoE.setText("Tipo de espacio: "+ tipo);
+        txtConfirmCantE.setText("Cantidad de espacios: "+ cantidadEspaciosOcupados);
+        
+        // Deshabilitar el botón después de agregar los datos
+        btnAgregar.setEnabled(false);
     }//GEN-LAST:event_btnAgregarActionPerformed
+
+    private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnEditarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -338,6 +379,10 @@ public class BienvenidoScreen extends javax.swing.JFrame {
     private javax.swing.JLabel txtCE;
     private javax.swing.JLabel txtCantEspacio;
     private javax.swing.JLabel txtCapDisponible;
+    private javax.swing.JLabel txtConfirmCantE;
+    private javax.swing.JLabel txtConfirmID;
+    private javax.swing.JLabel txtConfirmTipoE;
+    private javax.swing.JLabel txtDatos;
     private javax.swing.JLabel txtDiscapacitados;
     private javax.swing.JLabel txtEspacioCE;
     private javax.swing.JLabel txtEspacioD;
