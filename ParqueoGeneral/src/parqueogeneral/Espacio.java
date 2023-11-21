@@ -5,14 +5,15 @@ public class Espacio {
     private int id;
     private String tipo;
     private int cantidadEspacioOcupados;
+    private int codigoUnico;
     
     //Constructor
     public Espacio(int id, String tipo, int cantidadEspacioOcupados) {
         this.id = id;
         this.tipo = tipo;
         this.cantidadEspacioOcupados = cantidadEspacioOcupados;
+        this.codigoUnico = codigoUnico;
     }
-
     //Getters y Setters
     public int getId() {
         return id;
@@ -37,5 +38,15 @@ public class Espacio {
     public void setCantidadEspacioOcupados(int cantidadEspacioOcupados) {
         this.cantidadEspacioOcupados = cantidadEspacioOcupados;
     }  
+
+    public int getCodigoUnico() {
+        return codigoUnico;
+    }
+
+    public void setCodigoUnico(int codigoUnico) {
+        this.codigoUnico = codigoUnico;
+    }
+    
+    
 }
 
