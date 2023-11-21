@@ -1,6 +1,8 @@
 
 package parqueogeneral;
 
+import javax.swing.JOptionPane;
+
 public class GestionarParqueo {
     
     //Array
@@ -31,6 +33,52 @@ public class GestionarParqueo {
         return espaciosDisponibles[tipoEspacio][dia - 1];
     }
     
+    // Validar IDs
+    public boolean agregarEspacioValido(int id, String tipo, int cantidadEspacioOcupados){
+        if (id > 0) {
+            switch (id) {
+                case 1:
+                    if (tipo.equals("General")) {
+                        agregarEspacio(id, tipo, cantidadEspacioOcupados);
+                        return true;
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Tipo incorrecto para el ID 1. Debe ser 'General'.");
+                    }
+                    break;
+                case 2:
+                    if (tipo.equals("Techado")) {
+                        agregarEspacio(id, tipo, cantidadEspacioOcupados);
+                        return true;
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Tipo incorrecto para el ID 2. Debe ser 'Techado'.");
+                    }
+                    break;
+                case 3:
+                    if (tipo.equals("Discapacitado")) {
+                        agregarEspacio(id, tipo, cantidadEspacioOcupados);
+                        return true;
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Tipo incorrecto para el ID 3. Debe ser 'Discapacitado'.");
+                    }
+                    break;
+                case 4:
+                    if (tipo.equals("Carga Electrica")) {
+                        agregarEspacio(id, tipo, cantidadEspacioOcupados);
+                        return true;
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Tipo incorrecto para el ID 4. Debe ser 'Carga Electrica'.");
+                    }
+                    break;
+                default:
+                    JOptionPane.showMessageDialog(null, "ID inválido.");
+                    break;
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "ID no puede ser un número negativo.");
+        }
+        return false;
+    }
+    
     // Método para agregar un espacio en el parqueo
     public void agregarEspacio(int id, String tipo, int cantidadEspacioOcupados){
         if(cantidadEspacios < espacios.length){
@@ -41,12 +89,15 @@ public class GestionarParqueo {
         }
     }
     
-    // Método para mostrar todos los espacios (depuracion)
-    public void mostrarEspacios() {
-        for (int i = 0; i < cantidadEspacios; i++) {
-            System.out.println("ID: " + espacios[i].getId() +
-                               ", Tipo: " + espacios[i].getTipo() +
-                               ", Cantidad Ocupada: " + espacios[i].getCantidadEspacioOcupados());
-        }
-    }
+    
+    //Método para editar los datos agregados
+//    public void editarEspacio(int id, String tipo, int CantidadEspacioOcupados, int indice ){
+//        if(indice >= 0 && indice < cantidadEspacios){
+//            espacios[indice].setId(id);
+//            espacios[indice].setTipo(tipo);
+//            espacios[indice].setCantidadEspacioOcupados(CantidadEspacioOcupados);
+//        }else {
+//            System.out.println("Indice fuera de rango o el espacio no existe");
+//        }
+//    }
 }
