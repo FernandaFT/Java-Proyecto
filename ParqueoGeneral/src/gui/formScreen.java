@@ -64,6 +64,12 @@ public class formScreen extends javax.swing.JFrame {
         txtCorreo.setForeground(new java.awt.Color(255, 255, 255));
         txtCorreo.setText("Correo Electronico");
 
+        boxCorreo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boxCorreoActionPerformed(evt);
+            }
+        });
+
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Contraseña");
 
@@ -218,6 +224,13 @@ public class formScreen extends javax.swing.JFrame {
         if(correo.isEmpty()){
             labelErrorCorreo.setText("El campo de 'Correo Electronico' es obligatirio.");
             datosValidos = false; 
+        }else{
+           //Validación de formato de correo electronico
+           String regexCorreo = "^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$";
+           if(!correo.matches((regexCorreo))){
+               labelErrorCorreo.setText("El formato del correo electrónico no es válido.");
+               datosValidos = false;
+           }
         }
         if(password.isEmpty()){
             labelErrorPw.setText("El campo de 'Contraseña' es obligatirio.");
@@ -274,6 +287,10 @@ public class formScreen extends javax.swing.JFrame {
     private void boxApellidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boxApellidoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_boxApellidoActionPerformed
+
+    private void boxCorreoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boxCorreoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_boxCorreoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
