@@ -1,6 +1,8 @@
 
 package parqueogeneral;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Random;
 
 public class GestionarParqueo {
@@ -9,9 +11,8 @@ public class GestionarParqueo {
     private Espacio[] espacios;
     private int cantidadEspacios; //Contador de espacios creados
     private boolean[] codigosUtilizados; //muestra los codigos
-    private int ultimoCodigoGenerado; // almacena el ultimo codigo
-    
-    
+    private Map<Integer, Espacio> mapaEspacios; // Mapa para guardar códigos y espacios
+
     // Se declara la instancio como una variable estática para que
     // sea compartida entre diferentes clases y objetos sin necesidad de crear multiples instancias
     private static GestionarParqueo instance;
@@ -33,6 +34,7 @@ public class GestionarParqueo {
         espacios = new Espacio[cantidadMaximaEspacios];
         codigosUtilizados = new boolean[1000]; // rango de codigos 3 digitos
         cantidadEspacios = 0;
+        mapaEspacios = new HashMap<>();
     }
     
     
@@ -53,21 +55,16 @@ public class GestionarParqueo {
     public int agregarEspacio(String tipo, int cantidadEspacioOcupados) {
         if (cantidadEspacios < espacios.length) {
             int codigo = generarCodigoUnico(); // Obtener un código único
-            ultimoCodigoGenerado = codigo; // Almacena el último código generado
-            espacios[cantidadEspacios] = new Espacio(codigo, tipo, cantidadEspacioOcupados);
+            Espacio nuevoEspacio = new Espacio(codigo, tipo, cantidadEspacioOcupados);
+            espacios[cantidadEspacios] = nuevoEspacio;
             cantidadEspacios++;
-            // Registro de depuración: Mostrar los datos de ID - Tipo y Cantidad
+            mapaEspacios.put(codigo, nuevoEspacio); // Guardar en el mapa
             System.out.println("Espacio agregado: Código: " + codigo + ", Tipo: " + tipo + ", Cantidad de espacios ocupados: " + cantidadEspacioOcupados);
             return codigo; // Devolver el código generado
         } else {
             System.out.println("No se pudo agregar espacios");
             return -1; // Indicar que no se pudo agregar el espacio
         }
-    }
-    
-    //Metodo para obtener el ultimo codigo generado
-    public int obtenerUltimoCodigoGenerado(){
-        return ultimoCodigoGenerado;
     }
 
     //Metodo para generar un codigo unico 
@@ -86,15 +83,17 @@ public class GestionarParqueo {
     }
     
     //Método para editar los datos agregados
-    public void editarEspacio(int codigo, String nuevoTipo, int nuevaCantidadEspacioOcupados) {
-        for (int i = 0; i < cantidadEspacios; i++) {
-            if (espacios[i].getCodigoUnico() == codigo) {
-                espacios[i].setTipo(nuevoTipo);
-                espacios[i].setCantidadEspacioOcupados(nuevaCantidadEspacioOcupados);
-                System.out.println("Espacio con Código " + codigo + " actualizado: Tipo: " + nuevoTipo + ", Cantidad de espacios ocupados: " + nuevaCantidadEspacioOcupados);
-                return;
-            }
+    public boolean editarEspacio(int codigo, String nuevoTipo, int nuevaCantidadEspacioOcupados) {
+        if (mapaEspacios.containsKey(codigo)) {
+            Espacio espacio = mapaEspacios.get(codigo);
+            espacio.setTipo(nuevoTipo);
+            espacio.setCantidadEspacioOcupados(nuevaCantidadEspacioOcupados);
+            mapaEspacios.put(codigo, espacio); // Actualizar en el mapa
+            System.out.println("Espacio editado con éxito: Código: " + codigo);
+            return true; // Indicar que se editó exitosamente
+        } else {
+            System.out.println("No se encontró el espacio con el código: " + codigo);
+            return false; // Indicar que no se encontró el espacio
         }
-        System.out.println("No se encontró ningún espacio con el Código " + codigo);
     }
 }

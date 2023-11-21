@@ -330,34 +330,49 @@ public class BienvenidoScreen extends javax.swing.JFrame {
             // Si no se pudo agregar el espacio, muestra un mensaje o realiza acciones apropiadas
             JOptionPane.showMessageDialog(null, "No se pudo agregar el espacio. Espacio lleno.");
         }
- 
+        
+        //Borrar los datos del box
+        boxTipoEspacio.setText("");
+        boxCantidadEspacio.setText("");
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
-       
+
         String codigoStr = JOptionPane.showInputDialog(null, "Ingrese el código del espacio a editar:");
 
+        // Verificar si se ingresó algo en el cuadro de diálogo
         if (codigoStr != null && !codigoStr.isEmpty()) {
-            int codigo = Integer.parseInt(codigoStr);
-            String nuevoTipo = boxTipoEspacio.getText();
-            int nuevoCantidadEspaciosOcupados = Integer.parseInt(boxCantidadEspacio.getText());
+            try {
+                int codigo = Integer.parseInt(codigoStr);
 
-            // Obtener el último código generado
-            int ultimoCodigoGenerado = gestionarParqueo.obtenerUltimoCodigoGenerado();
+                // Ventana para ingresar el nuevo tipo y la nueva cantidad de espacios
+                String nuevoTipo = JOptionPane.showInputDialog(null, "Ingrese el nuevo tipo:");
+                String nuevaCantidadStr = JOptionPane.showInputDialog(null, "Ingrese la nueva cantidad de espacios:");
+                int nuevaCantidad = Integer.parseInt(nuevaCantidadStr);
 
-            // Verificar si el código ingresado coincide con el último código generado
-            if (codigo == ultimoCodigoGenerado) {
-                gestionarParqueo.editarEspacio(codigo, nuevoTipo, nuevoCantidadEspaciosOcupados);
-                System.out.println("Espacio editado exitosamente.");
-            } else {
-                System.out.println("El código ingresado no coincide con el último código generado.");
+                // Aquí llamas al método editarEspacio con los datos ingresados por el usuario
+                boolean editadoExitosamente = gestionarParqueo.editarEspacio(codigo, nuevoTipo, nuevaCantidad);
+
+                if (editadoExitosamente) {
+                    // Actualizar la interfaz gráfica si la edición fue exitosa
+                    txtConfirmTipoE.setText("Tipo de espacio: "+ nuevoTipo);
+                    txtConfirmCantE.setText(String.valueOf("Cantidad de espacios: "+ nuevaCantidad));
+                    System.out.println("Espacio actualizado: Código: " + codigo + ", Tipo: " + nuevoTipo + ", Cantidad de espacios ocupados: " + nuevaCantidad);
+
+                    // Mostrar un mensaje de éxito o realizar otras acciones necesarias
+                    JOptionPane.showMessageDialog(null, "Espacio editado con éxito.");
+                } else {
+                    // Mostrar un mensaje de error si no se encontró el espacio
+                    JOptionPane.showMessageDialog(null, "No se encontró el espacio con el código: " + codigo);
+                }
+            } catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(null, "Ingrese un código válido (número entero).");
             }
         } else {
-            System.out.println("No se proporcionó un código de espacio válido para editar.");
+            // Manejar caso en el que el usuario cancela la entrada
+            JOptionPane.showMessageDialog(null, "No se ingresó ningún código.");
         }
-
-        // Volver a habilitar el botón agregar después de editar
-        btnAgregar.setEnabled(true);
+        btnEditar.setEnabled(false); // Deshabilita el botón
     }//GEN-LAST:event_btnEditarActionPerformed
 
 
