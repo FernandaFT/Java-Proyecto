@@ -36,8 +36,6 @@ public class Espacio {
 
     public void setCantidadEspacioOcupados(int cantidadEspacioOcupados) {
         this.cantidadEspacioOcupados = cantidadEspacioOcupados;
-    }
-    
-    
+    }  
 }
 
