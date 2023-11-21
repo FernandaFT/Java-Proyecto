@@ -4,16 +4,19 @@ package parqueogeneral;
 public class GestionarParqueo {
     
     //Array
-    private Espacio [] espacios;
+    private Espacio[] espacios;
+    private int cantidadEspacios; //Contador de espacios creados
     
     //Constructor
     public GestionarParqueo() {
     }
     
     // Constructor que inicializa la lista de espacios
-    public GestionarParqueo(int cantidadEspacios) {
-        espacios = new Espacio[cantidadEspacios];
+    public GestionarParqueo(int cantidadMaximaEspacios) {
+        espacios = new Espacio[cantidadMaximaEspacios];
+        cantidadEspacios = 0;
     }
+    
     
     //Mostrar espacios disponibles por dia (me salio que tenia que poner final despues de private - averguar eso)
     private final int[][] espaciosDisponibles = {
@@ -28,40 +31,22 @@ public class GestionarParqueo {
         return espaciosDisponibles[tipoEspacio][dia - 1];
     }
     
-    // Método para adquirir un espacio en el parqueo
-    public void adquirirEspacio(int id, String tipo, int cantidadEspaciosOcupados){
-        int tipoID;
-        switch(tipo) {
-            case "General":
-                tipoID = 1;
-                break;
-            case "Techado":
-                tipoID = 2;
-                break;
-            case "Discapacitado":
-                tipoID = 3;
-                break;
-            case "Carga Electrica":
-                tipoID = 4;
-                break;
-            default:
-                // Si el tipo no es ninguno de los esperados, aquí puedes manejar el error o lanzar una excepción
-                // Por ejemplo:
-                throw new IllegalArgumentException("Tipo de espacio inválido");
-        }
-
-        if (id != tipoID) {
-            // Si el ID no coincide con el tipo asignado, puedes manejar el error o lanzar una excepción
-            // Por ejemplo:
-            throw new IllegalArgumentException("El ID no coincide con el tipo de espacio");
-        }
-
-        for(int i = 0; i < espacios.length; i++){
-            if(espacios[i] == null){
-                espacios[i] = new Espacio(id, tipo, cantidadEspaciosOcupados);
-                break;
-            }
+    // Método para agregar un espacio en el parqueo
+    public void agregarEspacio(int id, String tipo, int cantidadEspacioOcupados){
+        if(cantidadEspacios < espacios.length){
+            espacios[cantidadEspacios] = new Espacio(id, tipo, cantidadEspacioOcupados);
+            cantidadEspacios++;
+        }else {
+                System.out.println("No se pudo agregar espacios");
         }
     }
-
+    
+    // Método para mostrar todos los espacios (depuracion)
+    public void mostrarEspacios() {
+        for (int i = 0; i < cantidadEspacios; i++) {
+            System.out.println("ID: " + espacios[i].getId() +
+                               ", Tipo: " + espacios[i].getTipo() +
+                               ", Cantidad Ocupada: " + espacios[i].getCantidadEspacioOcupados());
+        }
+    }
 }

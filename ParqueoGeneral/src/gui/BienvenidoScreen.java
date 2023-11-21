@@ -1,7 +1,12 @@
-
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
+ */
 package gui;
 
+//import parqueogeneral.Espacio;
 import parqueogeneral.GestionarParqueo;
+//import parqueogeneral.Usuario;
 
 /**
  *
@@ -9,7 +14,11 @@ import parqueogeneral.GestionarParqueo;
  */
 public class BienvenidoScreen extends javax.swing.JFrame {
 
-//    private GestionarParqueo gestionarParqueo = new GestionarParqueo();
+    /**
+     * Creates new form BienvenidoScreen
+     */
+
+    GestionarParqueo parqueo = new GestionarParqueo(100);
     
     public BienvenidoScreen() {
         initComponents();
@@ -53,8 +62,8 @@ public class BienvenidoScreen extends javax.swing.JFrame {
         jSeparator1 = new javax.swing.JSeparator();
         txtID = new javax.swing.JLabel();
         boxID = new javax.swing.JTextField();
-        btnAgregar = new javax.swing.JButton();
         btnEditar = new javax.swing.JButton();
+        btnAgregar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -123,14 +132,14 @@ public class BienvenidoScreen extends javax.swing.JFrame {
         txtID.setForeground(new java.awt.Color(255, 255, 255));
         txtID.setText("ID");
 
+        btnEditar.setText("Editar");
+
         btnAgregar.setText("Agregar");
         btnAgregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAgregarActionPerformed(evt);
             }
         });
-
-        btnEditar.setText("Editar");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -185,11 +194,13 @@ public class BienvenidoScreen extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtID)
-                            .addComponent(boxID, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(btnAgregar)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                    .addGap(2, 2, 2)
+                                    .addComponent(btnAgregar)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(boxID, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 0, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
@@ -259,8 +270,8 @@ public class BienvenidoScreen extends javax.swing.JFrame {
                         .addComponent(boxID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnAgregar)
-                            .addComponent(btnEditar))
+                            .addComponent(btnEditar)
+                            .addComponent(btnAgregar))
                         .addContainerGap(224, Short.MAX_VALUE))))
         );
 
@@ -293,6 +304,18 @@ public class BienvenidoScreen extends javax.swing.JFrame {
     }//GEN-LAST:event_comboBoxDiasActionPerformed
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
+    
+
+        // Obtener los valores de los campos
+        int id = Integer.parseInt(boxID.getText());
+        String tipo = boxTipoEspacio.getText();
+        int cantidadEspaciosOcupados = Integer.parseInt(boxCantidadEspacio.getText());
+        
+        // Llamar al método agregarEspacio de la instancia parqueo para añadir el nuevo espacio
+        parqueo.agregarEspacio(id, tipo, cantidadEspaciosOcupados);
+
+        // Mostrar los espacios después de agregar el nuevo espacio usando la instancia parqueo
+        parqueo.mostrarEspacios();
 
     }//GEN-LAST:event_btnAgregarActionPerformed
 
@@ -327,4 +350,5 @@ public class BienvenidoScreen extends javax.swing.JFrame {
     private javax.swing.JLabel txtTipoEspacio;
     private javax.swing.JLabel txtUsuario;
     // End of variables declaration//GEN-END:variables
+
 }
