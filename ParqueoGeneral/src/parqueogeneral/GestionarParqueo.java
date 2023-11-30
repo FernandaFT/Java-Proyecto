@@ -1,9 +1,11 @@
 
 package parqueogeneral;
 
+import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
+import javax.swing.JOptionPane;
 
 public class GestionarParqueo {
     
@@ -38,8 +40,8 @@ public class GestionarParqueo {
     }
     
     
-    //Mostrar espacios disponibles por dia (me salio que tenia que poner final despues de private - averiguar eso)
-    private final int[][] espaciosDisponibles = {
+    //Mostrar espacios disponibles por dia
+    private int[][] espaciosDisponibles = {
         // Lunes, Martes, Miércoles, Jueves, Viernes
         {10, 8, 12, 9, 11}, // Espacios disponibles para G
         {15, 13, 11, 10, 14}, // Espacios disponibles para T
@@ -107,5 +109,29 @@ public class GestionarParqueo {
             System.out.println("No se encontró el espacio con el código: " + codigo);
             return false; // Indicar que no se encontró el espacio
         }
+    }
+    
+    // Generar Factura
+    public void generarFactura(int codigo, LocalDate fechaEntrada, LocalDate fechaSalida){
+        if(mapaEspacios.containsKey(codigo)){
+            Espacio espacio = mapaEspacios.get(codigo);
+            int cantidadDias = calcularDiferenciaDias(fechaEntrada, fechaSalida);
+            int montoPagar = cantidadDias * 700;
+
+            String resultado = "Código del espacio: " + codigo + "\n" + 
+                               "Fecha de entrada: " + fechaEntrada + "\n" + 
+                               "Fecha de salida: " + fechaSalida + "\n"+
+                               "Cantidad de días: " + cantidadDias + "\n"+
+                               "Monto a pagar: " + montoPagar + " colones";
+            JOptionPane.showMessageDialog(null, resultado, "Factura:", JOptionPane.INFORMATION_MESSAGE);
+
+        }else {
+            System.out.println("No se encontró el espacio con el código: " + codigo);
+        }
+    }
+    
+    //calcula monto
+    private int calcularDiferenciaDias(LocalDate fechaInicio, LocalDate fechaFin){
+        return Math.toIntExact(fechaInicio.until(fechaFin).getDays());
     }
 }
