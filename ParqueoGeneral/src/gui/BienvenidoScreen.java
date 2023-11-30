@@ -4,6 +4,8 @@
  */
 package gui;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeParseException;
 import javax.swing.JOptionPane;
 import parqueogeneral.GestionarParqueo;
 
@@ -64,6 +66,7 @@ public class BienvenidoScreen extends javax.swing.JFrame {
         txtConfirmTipoE = new javax.swing.JLabel();
         txtConfirmCantE = new javax.swing.JLabel();
         btnEliminar = new javax.swing.JButton();
+        btnFactura = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -163,6 +166,13 @@ public class BienvenidoScreen extends javax.swing.JFrame {
             }
         });
 
+        btnFactura.setText("Factura");
+        btnFactura.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFacturaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -209,13 +219,11 @@ public class BienvenidoScreen extends javax.swing.JFrame {
                                 .addComponent(txtCapDisponible, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(txtBienvenida)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtUsuario)
-                        .addContainerGap())
-                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnEliminar)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(btnEliminar)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btnFactura))
                             .addComponent(txtConfirmCantE)
                             .addComponent(txtConfirmTipoE)
                             .addComponent(txtConfirmID)
@@ -224,7 +232,12 @@ public class BienvenidoScreen extends javax.swing.JFrame {
                                 .addComponent(btnAgregar)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 616, Short.MAX_VALUE))))
+                        .addGap(0, 615, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(txtBienvenida)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtUsuario)
+                        .addContainerGap())))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -297,7 +310,9 @@ public class BienvenidoScreen extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(txtConfirmCantE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
-                .addComponent(btnEliminar)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnEliminar)
+                    .addComponent(btnFactura))
                 .addGap(74, 74, 74))
         );
 
@@ -436,6 +451,48 @@ public class BienvenidoScreen extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnEliminarActionPerformed
 
+    private void btnFacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFacturaActionPerformed
+//        // Aquí deberás obtener el código del espacio para generar la factura
+//        String codigoEspacio = JOptionPane.showInputDialog(null, "Ingrese el código del espacio para generar la factura:");
+//
+//        try {
+//            int codigo = Integer.parseInt(codigoEspacio);
+//
+//            // Obtener las fechas de entrada y salida (puedes obtenerlas de tus componentes de interfaz)
+//            LocalDate fechaEntrada = LocalDate.of(2023, 10, 25); // Reemplaza con tu fecha de entrada
+//            LocalDate fechaSalida = LocalDate.now(); // Reemplaza con tu fecha de salida
+//
+//            // Llamar al método para generar la factura
+//            GestionarParqueo parqueo = GestionarParqueo.obtenerInstancia(100); // Reemplaza 100 con tu cantidad máxima de espacios
+//            parqueo.generarFactura(codigo, fechaEntrada, fechaSalida);
+//        } catch (NumberFormatException e) {
+//            JOptionPane.showMessageDialog(null, "Por favor, ingrese un código válido para generar la factura.");
+//        }
+
+        // Pedir al usuario el código del espacio
+        String codigoEspacio = JOptionPane.showInputDialog(null, "Ingrese el código del espacio para generar la factura:");
+
+        try {
+            int codigo = Integer.parseInt(codigoEspacio);
+
+            // Pedir al usuario la fecha de entrada y salida
+            String fechaEntradaString = JOptionPane.showInputDialog(null, "Ingrese la fecha de entrada (AAAA-MM-DD):");
+            String fechaSalidaString = JOptionPane.showInputDialog(null, "Ingrese la fecha de salida (AAAA-MM-DD):");
+
+            LocalDate fechaEntrada = LocalDate.parse(fechaEntradaString);
+            LocalDate fechaSalida = LocalDate.parse(fechaSalidaString);
+
+            // Llamar al método para generar la factura
+            GestionarParqueo parqueo = GestionarParqueo.obtenerInstancia(100); // Reemplaza 100 con tu cantidad máxima de espacios
+            parqueo.generarFactura(codigo, fechaEntrada, fechaSalida);
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "Por favor, ingrese un código válido para generar la factura.");
+        } catch (DateTimeParseException ex) {
+            JOptionPane.showMessageDialog(null, "Por favor, ingrese las fechas en el formato correcto (AAAA-MM-DD).");
+        }
+        
+    }//GEN-LAST:event_btnFacturaActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField boxCantidadEspacio;
@@ -443,6 +500,7 @@ public class BienvenidoScreen extends javax.swing.JFrame {
     private javax.swing.JButton btnAgregar;
     private javax.swing.JButton btnEditar;
     private javax.swing.JButton btnEliminar;
+    private javax.swing.JButton btnFactura;
     private javax.swing.JComboBox<String> comboBoxDias;
     private javax.swing.JLabel iconCargaElectrica;
     private javax.swing.JLabel iconDiscapacitado;

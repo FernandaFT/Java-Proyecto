@@ -6,6 +6,7 @@ public class Espacio {
     private String tipo;
     private int cantidadEspacioOcupados;
     private int codigoUnico;
+
     
     //Constructor
     public Espacio(int id, String tipo, int cantidadEspacioOcupados) {
