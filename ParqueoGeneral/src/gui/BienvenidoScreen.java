@@ -452,22 +452,6 @@ public class BienvenidoScreen extends javax.swing.JFrame {
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnFacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFacturaActionPerformed
-//        // Aquí deberás obtener el código del espacio para generar la factura
-//        String codigoEspacio = JOptionPane.showInputDialog(null, "Ingrese el código del espacio para generar la factura:");
-//
-//        try {
-//            int codigo = Integer.parseInt(codigoEspacio);
-//
-//            // Obtener las fechas de entrada y salida (puedes obtenerlas de tus componentes de interfaz)
-//            LocalDate fechaEntrada = LocalDate.of(2023, 10, 25); // Reemplaza con tu fecha de entrada
-//            LocalDate fechaSalida = LocalDate.now(); // Reemplaza con tu fecha de salida
-//
-//            // Llamar al método para generar la factura
-//            GestionarParqueo parqueo = GestionarParqueo.obtenerInstancia(100); // Reemplaza 100 con tu cantidad máxima de espacios
-//            parqueo.generarFactura(codigo, fechaEntrada, fechaSalida);
-//        } catch (NumberFormatException e) {
-//            JOptionPane.showMessageDialog(null, "Por favor, ingrese un código válido para generar la factura.");
-//        }
 
         // Pedir al usuario el código del espacio
         String codigoEspacio = JOptionPane.showInputDialog(null, "Ingrese el código del espacio para generar la factura:");
@@ -483,7 +467,7 @@ public class BienvenidoScreen extends javax.swing.JFrame {
             LocalDate fechaSalida = LocalDate.parse(fechaSalidaString);
 
             // Llamar al método para generar la factura
-            GestionarParqueo parqueo = GestionarParqueo.obtenerInstancia(100); // Reemplaza 100 con tu cantidad máxima de espacios
+            GestionarParqueo parqueo = GestionarParqueo.obtenerInstancia(100); //cantidad máxima de espacios
             parqueo.generarFactura(codigo, fechaEntrada, fechaSalida);
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(null, "Por favor, ingrese un código válido para generar la factura.");
